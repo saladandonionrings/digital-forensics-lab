@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Digital Forensics Labs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 flex h-screen overflow-hidden">
+
+    <nav class="w-64 bg-gray-800 border-r border-gray-700 flex flex-col">
+        <div class="p-6 border-b border-gray-700">
+            <h1 class="text-xl font-bold text-green-500">Forensics Lab</h1>
+        </div>
+        <div id="lab-menu" class="flex-grow overflow-y-auto py-4">
+            <p class="text-gray-500 px-6 italic text-sm">Loading...</p>
+        </div>
+    </nav>
+
+    <main class="flex-grow overflow-y-auto p-8 bg-slate-900">
+        <div id="lab-content" class="max-w-4xl mx-auto">
+            <div class="text-center mt-20">
+                <h2 class="text-3xl font-bold text-gray-500 text-slate-700">Select lab in the menu</h2>
+                <p class="text-gray-600">Choose module to start.</p>
+            </div>
+        </div>
+    </main>
+
+<script>
+        let allData = [];
+
+        async function init() {
+            const res = await fetch('http://127.0.0.1:8000/labs');
+            allData = await res.json();
+            renderMenu();
+        }
+
+        function renderMenu() {
+            const menu = document.getElementById('lab-menu');
+            menu.innerHTML = '';
+            allData.forEach((lab, index) => {
+                const btn = document.createElement('button');
+                btn.className = "w-full text-left px-6 py-4 hover:bg-gray-700 transition font-medium border-b border-gray-700/50";
+                btn.id = `nav-btn-${lab.id}`;
+                btn.innerText = lab.title;
+                btn.onclick = () => showLab(lab.id);
+                menu.appendChild(btn);
+            });
+        }
+
+        function showLab(labId) {
+            // UI Active State
+            document.querySelectorAll('#lab-menu button').forEach(b => b.classList.remove('active-lab'));
+            document.getElementById(`nav-btn-${labId}`).classList.add('active-lab');
+
+            const lab = allData.find(l => l.id === labId);
+            const container = document.getElementById('lab-content');
+            
+            let challengesHtml = lab.challenges.map(c => `
+                <div class="bg-gray-800 p-6 rounded-xl border border-gray-700 shadow-lg mb-4">
+                    <div class="flex justify-between items-start mb-4">
+                        <p class="text-lg font-semibold text-gray-200">${c.question}</p>
+                        <span class="bg-blue-900/50 text-blue-300 text-xs font-bold px-3 py-1 rounded-full border border-blue-700">${c.points} pts</span>
+                    </div>
+                    <div class="flex gap-3">
+                        <input id="input-${c.id}" class="bg-gray-900 border border-gray-700 p-3 rounded-lg flex-grow outline-none focus:ring-2 ring-green-500 transition" placeholder="Answer...">
+                        <button onclick="check('${c.id}')" class="bg-green-600 hover:bg-green-500 px-6 py-3 rounded-lg font-bold transition">Check</button>
+                    </div>
+                    <p id="msg-${c.id}" class="mt-3 font-bold"></p>
+                </div>
+            `).join('');
+
+            container.innerHTML = `
+                <div class="animate-fadeIn">
+                    <h2 class="text-4xl font-bold text-white mb-2">${lab.title}</h2>
+                    <p class="text-gray-400 mb-8">${lab.description}</p>
+                    <div class="space-y-4">
+                        ${challengesHtml}
+                    </div>
+                </div>
+            `;
+        }
+
+        async function check(challengeId) {
+        const inputField = document.getElementById(`input-${challengeId}`);
+        const button = inputField.nextElementSibling;
+        const attempt = inputField.value;
+        
+        if (inputField.disabled) return;
+
+        const res = await fetch('http://127.0.0.1:8000/verify', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({challenge_id: challengeId, attempt: attempt})
+        });
+        
+        const data = await res.json();
+        const msg = document.getElementById(`msg-${challengeId}`);
+        
+        if(data.status === "correct") {
+            msg.innerText = "✅ Correct";
+            msg.className = "mt-3 font-bold text-green-400";
+            
+            // --- LOCK THE INPUT (HTB STYLE) ---
+            inputField.disabled = true;
+            inputField.classList.add('bg-green-900/20', 'border-green-500', 'text-green-500', 'cursor-not-allowed');
+            inputField.classList.remove('bg-gray-900', 'border-gray-700');
+            
+            button.disabled = true;
+            button.innerText = "Solved";
+            button.className = "bg-gray-700 text-gray-400 px-6 py-3 rounded-lg font-bold cursor-not-allowed";
+        } else {
+            msg.innerText = "❌ Incorrect";
+            msg.className = "mt-3 font-bold text-red-400";
+            inputField.classList.add('border-red-500');
+            setTimeout(() => inputField.classList.remove('border-red-500'), 1000);
+        }
+    }
+
+        init();
+    </script>
+</body>
+</html>
