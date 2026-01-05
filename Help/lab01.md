@@ -26,13 +26,13 @@ The common goal includes collecting evidence that can be used to prosecute suspe
 
 - **REvil Ransomware Group gets arrested in Russia**
     
-    ![Investigator taking an initial look](files/images/revil.png)
+    ![Investigator taking an initial look](images/revil.png)
     
     [Link to video](https://www.youtube.com/watch?v=OqEWuFmzhzs)
     
 - **Author of Raccoon Stealer gets arrested in Netherlands**
     
-    ![Tweet from @vxunderground](files/images/raccoon.png)
+    ![Tweet from @vxunderground](images/raccoon.png)
     
     [Link to tweet](https://twitter.com/vxunderground/status/1587304651426332673)
     
@@ -204,7 +204,7 @@ The `hexedit` tool lets you edit raw bytes of a file in an interactive way. It i
 $ hexedit image.jpg
 ```
 
-![Output](files/images/hexedit_output.png)
+![Output](images/hexedit_output.png)
 
 ## `ps` — used to list the process running on the system
 
@@ -242,11 +242,11 @@ For this section, provide the complete commands for all the exercises where aske
 8. If we wanted to look for files modified in the last 30 minutes in `/home` directory, what command would we want to use?  
 Hint: Explore how you can use `find` command to achieve this.
 9. What command can we use to display information about all active TCP connections on the system?
-10. Given [this corrupted image file](files/challenge.png), can you find a way to recover and view its contents?  
+10. Given [this corrupted image file](challenge.png), can you find a way to recover and view its contents?  
 Hint 1: A quick google search for “magic bytes” might help.  
 Hint 2: Explore how `hexedit` can help you here.  
     
     You may download the image using following command:  
     ```
-    curl https://raw.githubusercontent.com/vonderchild/digital-forensics-lab/main/Lab%2001/files/challenge.png -o challenge.png
+    curl https://raw.githubusercontent.com/vonderchild/digital-forensics-lab/main/Lab%2001/challenge.png -o challenge.png
     ```

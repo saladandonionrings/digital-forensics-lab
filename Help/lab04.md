@@ -11,7 +11,7 @@ Before delving into the topic of web attacks and forensics, let's establish an e
 ### Clone the repository
 
 ```
-git clone https://github.com/vonderchild/digital-forensics-lab && cd digital-forensics-lab/Lab\ 4/files/app
+git clone https://github.com/vonderchild/digital-forensics-lab && cd digital-forensics-lab/Lab\ 4/app
 ```
 
 ### Install Docker
@@ -68,11 +68,11 @@ For example, let's consider that you're currently in the home directory `/home/k
 
 To try it out, head over to [http://127.0.0.1/images.php](http://127.0.0.1/images.php) and it should display some images along with an input field.
 
-![images](files/images/images.png)
+![images](images/images.png)
 
 If we enter the correct image name, the web application will display it back to us. But what if we try to enter a file name that's not an image, like `/etc/passwd`? To our surprise, it will print out its contents. However, we just need to add some leading `../` before our file name `/etc/passwd`.
 
-![path_traversal](files/images/path_traversal.png)
+![path_traversal](images/path_traversal.png)
 
 Now that we are familiar with the method of exploiting this vulnerability, let's proceed to learn how to detect it in our logs. In order to access the logs, we must first take shell inside the docker container where our application is running. We do that by first listing the container ID using `docker ps -q` and then executing `docker exec` to spawn a shell:
 
@@ -277,7 +277,7 @@ To start with the attack and generate logs on the server enter the following pay
 
 We use the first query to check if the web application is vulnerable to SQL injection, and the second query to extract the users' passwords from the database.
 
-![sqli](files/images/sqli.png)
+![sqli](images/sqli.png)
 
 As both of these are POST requests, we can check for logs inside the `error.log` file:
 
@@ -305,4 +305,4 @@ Hint: The secret you're looking for is not in a `.sql` or a `.php` file.
 9. What were some indicators that confirmed that an attack had taken place? What were your key takeaways from this attack?
 10. Based on this attack, what indicators of compromise can be used to detect future attacks?
 
-The logs can be downloaded from [https://github.com/vonderchild/digital-forensics-lab/tree/main/Lab%2004/files/logs.zip](https://github.com/vonderchild/digital-forensics-lab/tree/main/Lab%2004/files/logs.zip).
+The logs can be downloaded from [https://github.com/vonderchild/digital-forensics-lab/tree/main/Lab%2004/logs.zip](https://github.com/vonderchild/digital-forensics-lab/tree/main/Lab%2004/logs.zip).

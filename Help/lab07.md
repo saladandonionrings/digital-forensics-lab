@@ -28,12 +28,12 @@ Dynamic analysis is a method of analyzing malware by executing it in an isolated
 
 # Getting Hands On
 
-Now that we have a basic understanding of static and dynamic analysis, let's try them out in practice. The binary we will be analyzing is essentially a compiled version of C code available at [https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab 07/files/main.c](https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab%2007/files/main.c).
+Now that we have a basic understanding of static and dynamic analysis, let's try them out in practice. The binary we will be analyzing is essentially a compiled version of C code available at [https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab 07/main.c](https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab%2007/main.c).
 
 To begin, we can download the compiled binary using the following command:
 
 ```
-wget https://github.com/vonderchild/digital-forensics-lab/raw/main/Lab%2007/files/main
+wget https://github.com/vonderchild/digital-forensics-lab/raw/main/Lab%2007/main
 ```
 
 ## Initial Analysis
@@ -85,23 +85,23 @@ chmod +x Cutter-v2.2.0-Linux-x86_64.AppImage
 
 After the application is launched, click Select, and open the `main` binary file you had downloaded:
 
-![cutter1](files/images/cutter1.png)
+![cutter1](images/cutter1.png)
 
 After that, click Open, and on the Load Options window, click Ok.
 
-![cutter2](files/images/cutter2.png)
+![cutter2](images/cutter2.png)
 
 This should bring you to the dashboard tab that displays an overview of the binary we're analyzing including its format, file type, programming language, architecture, and hashes.
 
-![cutter3](files/images/cutter3.png)
+![cutter3](images/cutter3.png)
 
 To inspect the code of a function, we can double click the function name in the left pane, and it should display the code's disassembled version:
 
-![cutter4](files/images/cutter4.png)
+![cutter4](images/cutter4.png)
 
 To view the decompiled C code of the same function, select Decompile from the bottom pane, then Ghidra from the bottom-right:
 
-![cutter5](files/images/cutter5.png)
+![cutter5](images/cutter5.png)
 
 It appears that the main function begins with declaring some variables, then it assigns them some values and calls the `caesar_decode` function, after which the `system` function is called, and then finally the main function returns.
 
@@ -109,7 +109,7 @@ It appears that the main function begins with declaring some variables, then it 
 
 Let's now take a look at what the `caesar_decode` does:
 
-![cutter6](files/images/cutter6.png)
+![cutter6](images/cutter6.png)
 
 As suggested by its name, `caesar_decode` takes input a pointer to an array of `char` type and key of type `int`, then it decodes the array by iterating through it and utilizing the Caesar cipher.
 
@@ -117,7 +117,7 @@ In the main function, we see that `caesar_decode` is called with two parameters 
 
 Therefore, we can infer that the key used in the Caesar cipher is 13, and we can use [CyberChef](https://gchq.github.io/CyberChef/) to decode from the hexadecimal representation of the string:
 
-![cyberchef](files/images/cyberchef.png)
+![cyberchef](images/cyberchef.png)
 
 The recipe can be found [here](https://gchq.github.io/CyberChef/#recipe=Swap_endianness('Hex',8,false)From_Hex('Auto')ROT13(true,true,false,13)&input=MHgyMDcwMmQyMDc1NjY2ZTZmCjB4NzYyZDIwNzU2NjZlNmYyNwoweDY5NzI3MTJmMjAyNjNlMjAKMHgzMjM5MzEyZjYzNzA2NzJmCjB4MzEyZTMwMmUzODM2MzEyZQoweDIwMzQzNDM0MzQyZjMxMzEKMHgzMTI2M2UzMAoweDI3).
 
@@ -164,7 +164,7 @@ Although our particular binary does not seem to be making any library calls, but
 
 Another way to perform dynamic analysis is to use Wireshark to monitor network traffic. To do this, we can start capturing packets and then execute the binary. This will allow us to observe any network connections the binary makes and analyze the data being sent and received:
 
-![wireshark](files/images/wireshark.png)
+![wireshark](images/wireshark.png)
 
 We can see that the binary attempts to establish a reverse shell network connection from our host system with IP `192.168.0.106` to the host with IP `192.168.0.111` on port `4444`. However, the connection fails as the other host is not listening on that port.
 
@@ -176,11 +176,11 @@ Let's try uploading the binary we just analyzed to VirusTotal. Interestingly, no
 
 The detailed analysis of the binary can be found at the following link: [https://www.virustotal.com/gui/file/e084c637e31a1d280200c25af8e86959874178f041f2ec9492bf066e72578490/](https://www.virustotal.com/gui/file/e084c637e31a1d280200c25af8e86959874178f041f2ec9492bf066e72578490/detection)
 
-![virustotal1](files/images/virustotal1.png)
+![virustotal1](images/virustotal1.png)
 
 As a comparison, we can refer to the VirusTotal analysis of the widely known WannaCry ransomware available at the following link: [https://www.virustotal.com/gui/file/3ecc0186adba60fb53e9f6c494623dcea979a95c3e66a52896693b8d22f5e18b/](https://www.virustotal.com/gui/file/3ecc0186adba60fb53e9f6c494623dcea979a95c3e66a52896693b8d22f5e18b/)
 
-![virustotal2](files/images/virustotal2.png)
+![virustotal2](images/virustotal2.png)
 
 # Conclusion
 

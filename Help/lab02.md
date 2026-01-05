@@ -30,11 +30,11 @@ Computer
 
 Registry keys can be viewed and modified by using the built-in Registry Editor. Following are two ways to open it, through the Search bar or by using the Run command (Win + R).
 
-![regedit](files/images/regedit.png)
+![regedit](images/regedit.png)
 
 To test it out, we can modify the mouse sensitivity in settings and see the changes reflected in registry keys.
 
-![registry](files/images/registry.png)
+![registry](images/registry.png)
 
 An alternative approach is to do it the other way around by first modifying the registry keys, and then seeing the changes after rebooting the computer or signing out and signing back in.
 
@@ -44,7 +44,7 @@ The `NTUSER.DAT` file is a user profile hive that is part of the registry. The p
 
 The contents of the `NTUSER.DAT` file can be accessed using Registry Explorer by Eric Zimmerman as shown in the image below.
 
-![registry-explorer](files/images/registry-explorer.png)
+![registry-explorer](images/registry-explorer.png)
 
 The tool can be downloaded from [https://f001.backblazeb2.com/file/EricZimmermanTools/net6/RegistryExplorer.zip](https://f001.backblazeb2.com/file/EricZimmermanTools/net6/RegistryExplorer.zip).
 
@@ -149,7 +149,7 @@ Firefox stores its data that can be valuable during a digital forensics investig
 
 To view `.json` files, we can use any text editor as shown in the image below.
 
-![json](files/images/json.png)
+![json](images/json.png)
 
 However, the `.sqlite` files require a DB Browser such as `sqlitebrowser` that comes built-in with Kali Linux. Here’s how we can use `sqlitebrowser` to view `.sqlite` files:
 
@@ -157,7 +157,7 @@ However, the `.sqlite` files require a DB Browser such as `sqlitebrowser` that c
 $ sqlitebrowser places.sqlite
 ```
 
-![sqlitebrowser](files/images/sqlitebrowser.png)
+![sqlitebrowser](images/sqlitebrowser.png)
 
 ### Saved Logins
 
@@ -233,5 +233,5 @@ Each of the events have a specific id associated with them, which can be used to
 
 Here’s an example of event ID `1117` in the file `Microsoft-Windows-Windows Defender%4Operational.evtx`, viewed using the built-in Event Viewer.
 
-![event-logs](files/images/event-logs.png)
+![event-logs](images/event-logs.png)
 

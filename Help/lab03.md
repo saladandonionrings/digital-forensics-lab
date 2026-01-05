@@ -174,11 +174,11 @@ To take an example, let’s create an empty word document, and follow the steps 
 
 1. Click View → Macros → View Macros.
     
-    ![Step 1](files/images/step1.png)
+    ![Step 1](images/step1.png)
     
 2. Type a name such as HelloWorld, select Document1 (current document) under Macros in, and click create.
     
-    ![Step 2](files/images/step2.png)
+    ![Step 2](images/step2.png)
     
 3. Paste the following code in the text box.
     
@@ -192,12 +192,12 @@ To take an example, let’s create an empty word document, and follow the steps 
     End Sub
     ```
     
-    ![Step 3](files/images/step3.png)
+    ![Step 3](images/step3.png)
     
 4. Close the Microsoft Visual Basic for Application tab.
 5. Repeat step 1, select the HelloWorld macro and click Run.
     
-    ![Untitled](files/images/step5.png)
+    ![Untitled](images/step5.png)
     
 6. Observe that `Hello, World!` is now written in the document.
 7. Save the document as `.docm`.
@@ -303,9 +303,9 @@ For PNG files, one of the commonly employed techniques to hide messages is by mo
 
 As an example, consider the below image of Van Gogh’s Starry Night painting with a message already embedded in it.
 
-![starry_night.png](files/starry_night.png)
+![starry_night.png](starry_night.png)
 
-The image can be downloaded from [https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab 03/files/starry_night.png](https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab%2003/files/starry_night.png).
+The image can be downloaded from [https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab 03/starry_night.png](https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab%2003/starry_night.png).
 
 One tool used for detecting PNG steganography is `zsteg`, which can be installed using the command `sudo gem install zsteg`. 
 
@@ -334,8 +334,8 @@ In audio steganography, the most common method is to embed the message within th
 
 To detect audio steganography, tools such as Sonic Visualizer or Audacity can be used.
 
-To test it out, download the audio file from [https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab 03/files/super_secret_audio.wav](https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab%2003/files/super_secret_audio.wav). 
+To test it out, download the audio file from [https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab 03/super_secret_audio.wav](https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab%2003/super_secret_audio.wav). 
 
 Next, open the file in Sonic Visualizer, and click Layer → Add Spectogram.
 
-![Untitled](files/images/audio_steg.png)
+![Untitled](images/audio_steg.png)

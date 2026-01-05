@@ -28,23 +28,23 @@ Here's a step-by-step guide to create a disk image using FTK Imager:
 
 1. Open FTK Imager, go to File → Create Disk Image.
     
-    ![ftk1](files/images/ftk1.png)
+    ![ftk1](images/ftk1.png)
     
 2. Select Physical Drive, then click next and choose the drive you want to create an image of. For this example, I'll pick my USB drive.
     
-    ![ftk2](files/images/ftk2.png)
+    ![ftk2](images/ftk2.png)
     
 3. Next, click the Add button under Image Destination(s). Then, select the destination image type as Raw (dd).
     
-    ![ftk3](files/images/ftk3.png)
+    ![ftk3](images/ftk3.png)
     
 4. Enter the relevant details about the evidence, then choose a folder and a name to save the disk image.
     
-    ![ftk4](files/images/ftk4.png)
+    ![ftk4](images/ftk4.png)
     
 5. Finally, click start to begin the creation process. It can take a little while to complete depending on the size of the drive.
     
-    ![ftk5](files/images/ftk5.png)
+    ![ftk5](images/ftk5.png)
     
 
 # Analyzing a Disk Image
@@ -53,11 +53,11 @@ Once the disk image has been acquired, the next step is to analyze it for any ev
 
 >💡 Although FTK Imager is lightweight, it requires us to have prior knowledge about the files that are present inside a disk image and their locations. On the other hand, Autopsy automatically parses useful information such as images, internet history, geolocation, timeline, etc. It can also recover deleted files, search for patterns within the disk image, and generate detailed reports. So I'll suggest you to explore it as well.
 
-To download the disk image, use the link [https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab 06/files/Image.ad1](https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab%2006/files/Image.ad1).
+To download the disk image, use the link [https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab 06/Image.ad1](https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab%2006/Image.ad1).
 
 To open a disk image in FTK Imager, click on "File" and then select "Add Evidence Item". From there, choose "Image File" and select the disk image you want to analyze:
 
-![ftk6](files/images/ftk6.png)
+![ftk6](images/ftk6.png)
 
 Once you have opened the disk image on FTK Imager, you'll be able to see four sections on the window:
 
@@ -68,11 +68,11 @@ Once you have opened the disk image on FTK Imager, you'll be able to see four se
 
 To be able to explore the file system in the disk image, we need to extend the evidence tree located in the top left area:
 
-![ftk7](files/images/ftk7.png)
+![ftk7](images/ftk7.png)
 
 The root directory of the imaged USB Drive is displayed, allowing us to select and view the contents of any file. For instance, we can access and view the `note.txt` and `meme.jpeg` files that were originally stored on the USB drive.
 
-![ftk8](files/images/ftk8.png)
+![ftk8](images/ftk8.png)
 
 We can also extract any of the files that may be of interest by simply right-clicking on them and selecting "Export Files".
 

@@ -72,13 +72,13 @@ The next step in network traffic forensics is to analyze the captured network tr
 
 While there are many features available in Wireshark for network forensics, some of the most commonly used ones include viewing protocol hierarchy, applying filters, viewing packet details and packet bytes, following TCP streams, and exporting objects.
 
-To begin analyzing sample captured network traffic, download the file from the URL [https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab 05/files/capture.pcapng](https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab%2005/files/capture.pcapng) and open it in Wireshark. 
+To begin analyzing sample captured network traffic, download the file from the URL [https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab 05/capture.pcapng](https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab%2005/capture.pcapng) and open it in Wireshark. 
 
 ### Protocol Hierarchy
 
 To get a general overview of the captured network traffic, we can go to Statistics → Protocol Hierarchy to see which protocols are being used in the capture, and the relative amount of packets for each protocol. This helps us narrow down our analysis and filter for suspicious traffic.
 
-![protocol_hierarchy](files/images/protocol_hierarchy.png)
+![protocol_hierarchy](images/protocol_hierarchy.png)
 
 ### Filters
 
@@ -86,11 +86,11 @@ We can also apply filters to focus on traffic of our interest. This makes it eas
 
 The following image demonstrates how to filter for HTTP packets:
 
-![filter_http](files/images/filter_http.png)
+![filter_http](images/filter_http.png)
 
 Similarly, we can filter for FTP packets:
 
-![filter_ftp](files/images/filter_ftp.png)
+![filter_ftp](images/filter_ftp.png)
 
 To see what other filters Wireshark supports, refer to [https://wiki.wireshark.org/DisplayFilters](https://wiki.wireshark.org/DisplayFilters).
 
@@ -98,13 +98,13 @@ To see what other filters Wireshark supports, refer to [https://wiki.wireshark.o
 
 The packet details pane shows the selected packet in a more detailed form, whereas the packet bytes pane shows the data of the selected packet in a hexdump format. These panes are located at the bottom of the Wireshark window.
 
-![details_and_bytes](files/images/details_and_bytes.png)
+![details_and_bytes](images/details_and_bytes.png)
 
 ### Follow TCP Stream
 
 The Follow TCP Stream feature in Wireshark displays the entire conversation for a particular TCP connection. This makes it easier to see the full details of the connection and any data transmitted during that connection. To use this feature, we can right click on any packet, then select Follow → TCP Stream.
 
-![tcp_stream](files/images/tcp_stream.png)
+![tcp_stream](images/tcp_stream.png)
 
 ### Export Objects
 
@@ -112,7 +112,7 @@ The Export Objects feature allows us to extract files from captured network traf
 
 In the "HTTP" sub-menu, we can view a list of files that were transferred over HTTP during the capture. After selecting the file(s) that we want to extract, we can save them by clicking on the "Save" button.
 
-![export_objects](files/images/export_objects.png)
+![export_objects](images/export_objects.png)
 
 ## Conclusion
 
