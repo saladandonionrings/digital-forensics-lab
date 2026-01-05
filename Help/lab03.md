@@ -303,9 +303,7 @@ For PNG files, one of the commonly employed techniques to hide messages is by mo
 
 As an example, consider the below image of Van Gogh’s Starry Night painting with a message already embedded in it.
 
-![starry_night.png](starry_night.png)
-
-The image can be downloaded from [https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab 03/starry_night.png](https://github.com/vonderchild/digital-forensics-lab/blob/main/Lab%2003/starry_night.png).
+![starry_night.png](images/starry_night.png)
 
 One tool used for detecting PNG steganography is `zsteg`, which can be installed using the command `sudo gem install zsteg`. 
 
