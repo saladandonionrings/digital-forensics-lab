@@ -67,6 +67,7 @@ async def get_labs(request: Request):
         lab_copy = {
             "id": lab.get("id"),
             "title": lab.get("title"),
+            "description": lab.get("description"),
             "download_url": lab.get("download_url"), # Ensure this is sent!
             "challenges": [
                 {k: v for k, v in c.items() if k not in ["answer", "secret_hint"]} 
